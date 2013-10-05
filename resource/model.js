@@ -9,7 +9,8 @@ var MainModel = (function (_super) {
     };
 
     MainModel.prototype.load = function () {
-    };
+		// alert("test");
+	};
 
     MainModel.prototype.loadComplete = function () {
         this.dispatchEvent("complete");
