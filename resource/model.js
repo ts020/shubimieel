@@ -14,5 +14,9 @@ var MainModel = (function (_super) {
     MainModel.prototype.loadComplete = function () {
         this.dispatchEvent("complete");
     };
+
+    MainModel.prototype.changeData = function() {
+    	this.dispatchEvent("changedData");
+    }
     return MainModel;
 })(events.EventDispatcher);
