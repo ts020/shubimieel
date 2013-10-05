@@ -9,7 +9,7 @@ var MainController = (function (_super) {
 
     MainController.prototype.init = function () {
     	this.model.addEventListener("inited", function(){this.modelInited()});
-    	this.model.addEventListener("complete", function(){this.modelDataComplete()});
+    	this.model.addEventListener("complete", function(){this.modelDataLoaded()});
     	this.model.addEventListener("changedData", function(){this.modelDataChange()});
     	this.view.addEventListener("inited", function(){this.viewInited()});
 
@@ -19,7 +19,7 @@ var MainController = (function (_super) {
 
     }
 
-	MainController.prototype.modelDataComplete = function() {
+	MainController.prototype.modelDataLoaded = function() {
 
     }
 
