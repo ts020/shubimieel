@@ -1,6 +1,6 @@
 body, #mainCanvas {
-	width:960px;
-	height:640px;
+	width:640px;
+	height:960px;
 	padding: 0px;
 	margin: 0px;
 }
