@@ -8,14 +8,10 @@ var MainModel = (function (_super) {
         this.dispatchEvent("inited");
     };
 
-	MainModel.prototype.load = function () {
+	MainModel.prototype.load = function (team) {
 		var _this = this;
-		$.getJSON("http://210.129.199.30/syubi/mieru/", getParam(), function(data){
+		$.getJSON("http://210.129.199.30/syubi/mieru/", {t:team}, function(data){
 			_this.response = data;
-			var team = getParam().t;
-			if( team != undefined ){
-				_this.team = team;
-			}
 			_this.loadComplete();
 		})
 		.fail(function(XMLHttpRequest, textStatus, errorThrown){

@@ -16,7 +16,7 @@ var MainController = (function (_super) {
 	};
 
     MainController.prototype.load = function(type) {
-        this.model.load(type || 0);
+        this.model.load(type);
     }
 
     MainController.prototype.modelInited = function() {
@@ -53,6 +53,5 @@ var MainController = (function (_super) {
 
     return MainController;
 })(events.EventDispatcher);
-
 var controller = new MainController();
 controller.load();
