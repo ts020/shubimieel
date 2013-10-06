@@ -45,6 +45,7 @@ var MainController = (function (_super) {
 
     MainController.prototype.changeTeam = function(type) {
         document.getElementById("floatingMenu").style.visibility = "hidden";
+        document.getElementById("head").src = "resource/img/head/" + type + ".png"
         this.load(type);
     }
 
