@@ -13,8 +13,11 @@ var MainController = (function (_super) {
     	this.model.addEventListener("complete", function(){_this.modelDataLoaded()});
     	this.model.addEventListener("changedData", function(){_this.modelDataChange()});
     	this.view.addEventListener("inited", function(){_this.viewInited()});
-		this.modelDataLoaded();
 	};
+
+    MainController.prototype.load = function() {
+        this.model.load();
+    }
 
     MainController.prototype.modelInited = function() {
     }
@@ -38,12 +41,5 @@ var MainController = (function (_super) {
     return MainController;
 })(events.EventDispatcher);
 
-function getJson(){
-	var mc = new MainController();
-	var mm = new MainModel();
-	mm.load();
-	console.log("####################");
-}
-
-getJson();
-
+var controller = new MainController();
+controller.load();

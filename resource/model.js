@@ -33,6 +33,3 @@ var MainModel = (function (_super) {
     }
     return MainModel;
 })(events.EventDispatcher);
-
-var mm = new MainModel();
-mm.load();
