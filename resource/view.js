@@ -26,7 +26,7 @@ var MainView = (function (_super) {
         for (var i = 0; i < 27; i++) {
             position = parseInt(Math.random() * 9) + 1;
             x = Math.random() * 640;
-            y = Math.random() * 960;
+            y = Math.random() * 640;
             array.push(new ballData(canvas, x, y, position));
         }
 
