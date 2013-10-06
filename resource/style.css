@@ -9,6 +9,7 @@ canvas {
 	width: 500px;
 	height: 500px;
 	-moz-background-size:contain;
-	background-size:contain;
+	background-size: contain;
 	background-image: url("img/back.svg");
+	background-size: 100%;
 }

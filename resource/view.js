@@ -10,6 +10,13 @@ var MainView = (function (_super) {
     };
 
     MainView.prototype.draw = function () {
+
+        var array = new Array();
+        console.log(this.model.response[0].contents[0]);
+        console.log(this.model.response[0].contents[0].position_id);
+        //type_idが-1ならヒット
+
+
         /*
         document.body.addEventListener("click", function(){
             alert("click");
@@ -23,12 +30,14 @@ var MainView = (function (_super) {
         }
         var canvas  = document.getElementById("mainCanvas").getContext("2d");
 
-        for (var i = 0; i < 100; i++) {
-            position = parseInt(Math.random() * 9) + 1;
-            x = (position - 1)* 50 + Math.random() * 210;
-            y = (position % 3 ) * 150 + Math.random() * 210;
-            name = '堂林 翔太';
-            array.push(new ballData(canvas, x, y, position, name));
+        for (var i = 0; i < this.model.response[0].contents.length; i++) {
+            if (parseInt(this.model.response[0].contents[i].type_id) != -1) {
+                position = parseInt(this.model.response[0].contents[i].position_id, 10);
+                x = parseInt(this.model.response[0].contents[i].x, 10) * 2.3 - 30;//(position - 1)* 50 + Math.random() * 210;
+                y = parseInt(this.model.response[0].contents[i].y, 10) * 2.3 + 30;//(position % 3 ) * 150 + Math.random() * 210;
+                name = this.model.response[0].contents[i].player_name;
+                array.push(new ballData(canvas, x, y, position, name));
+            }
         }
 
         //重心計算
@@ -71,7 +80,7 @@ var MainView = (function (_super) {
             
             var avg = avg/center[i].length;
             console.log('距離の平均は(' + avg +')');
-            drawCircle(canvas, centerX, centerY, ( i + 1 ), 'center', '', max + 10);
+            //drawCircle(canvas, centerX, centerY, ( i + 1 ), 'center', '', max + 10);
             drawCircle(canvas, centerX, centerY, ( i + 1 ), 'center', name, avg + 10);
         }
     };
