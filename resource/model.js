@@ -10,9 +10,7 @@ var MainModel = (function (_super) {
 
 	MainModel.prototype.load = function () {
 		var _this = this;
-		var uparam = getParam();
-		$.getJSON("http://210.129.199.30/syubi/mieru/sub", {"t" : uparam[0], limit: uparam[1]},  function(data){
-		//$.getJSON("http://210.129.199.30/syubi/mieru/mini/", function(data){
+		$.getJSON("http://210.129.199.30/syubi/mieru/sub", getParam(),  function(data){
 			console.log("success");
 			_this.response = data;
 			_this.loadComplete();
@@ -36,15 +34,14 @@ var MainModel = (function (_super) {
 })(events.EventDispatcher);
 
 function getParam(){
-	var uparam = new Array(2);
+	var uparam = {};
 	var urls = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&'); 
 	for(var i = 0; i < urls.length; i++) { 
-		if(urls[i].split('=')[0] == "t"){
-			uparam[0] = urls[i].split('=')[1];
-		}else if(urls[i].split('=')[0] == "limit"){
-			uparam[1] = urls[i].split('=')[1];
+		var url = urls[i].split('=');
+		if(url[0] == "t" || url[0] == "limit" || url[0] == "pid" ){
+			uparam[url[0]] = url[1];
 		}
 	} 
-	return uparam; 
+	return uparam;
 }
 
