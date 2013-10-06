@@ -27,13 +27,14 @@ var MainView = (function (_super) {
             position = parseInt(Math.random() * 9) + 1;
             x = Math.random() * 640;
             y = Math.random() * 640;
-            array.push(new ballData(canvas, x, y, position));
+            name = '堂林 翔太';
+            array.push(new ballData(canvas, x, y, position, name));
         }
 
         //重心計算
         for (var i = 0; i < array.length; i++) {
-            console.log(array[i].position);
-            center[(array[i].position - 1)].push(new positionData(array[i].x, array[i].y));
+            console.log(array[i].name);
+            center[(array[i].position - 1)].push(new positionData(array[i].x, array[i].y, array[i].name));
         }
 
         for (var i = 0; i < center.length; i++) {
@@ -41,14 +42,16 @@ var MainView = (function (_super) {
             var numX = 0;
             var sumY = 0;
             var numY = 0;
+            var name = '';
             console.log('ポジション' + i + 'が処理した打球は' + center[i].length);
             for (var j = 0; j < center[i].length; j++) {
                 sumX += center[i][j].x;
                 sumY += center[i][j].y;
+                name = center[i][j].name;
             }
 
-            console.log("ポジション" + i + "の重心は(" + sumX/center[i].length + ", " + sumY/center[i].length + ")")
-            drawCircle(canvas, sumX/center[i].length, sumY/center[i].length, ( i + 1 ), 'center');
+            console.log("ポジション" + i + 'の' + name + "の重心は(" + sumX/center[i].length + ", " + sumY/center[i].length + ")")
+            drawCircle(canvas, sumX/center[i].length, sumY/center[i].length, ( i + 1 ), 'center', name);
         }
     };
 
@@ -80,7 +83,7 @@ function drawCircle(canvas, x, y, positionNumber) {
         canvas.fill();
 }*/
 
-function drawCircle(canvas, x, y, positionNumber, center) {
+function drawCircle(canvas, x, y, positionNumber, center, name) {
     if (center == 'center'){
         console.log("Draw Center!")
         canvas.beginPath();
@@ -94,8 +97,12 @@ function drawCircle(canvas, x, y, positionNumber, center) {
 
             canvas.fillStyle = fillPositionColor(positionNumber, 'center');
             canvas.fill();
+
+            canvas.fillStyle = '#000';
+            canvas.font = "20pt Arial";
+            canvas.fillText(name, x, y);       
     } else {
-        console.log("Draw Ball")
+        //console.log("Draw Ball")
         canvas.beginPath();
             canvas.lineWidth = 1;
             //canvas.strokeStyle = "#ff0000";
@@ -111,7 +118,7 @@ function drawCircle(canvas, x, y, positionNumber, center) {
 }
 
 function fillPositionColor(positionNumber, center) {
-    console.log("ポジション" + positionNumber + "の色を描画");
+    //console.log("ポジション" + positionNumber + "の色を描画");
     var alpha = 0.9;
     if (center == 'center') {
         alpha = 0.5;
@@ -142,15 +149,17 @@ function fillPositionColor(positionNumber, center) {
     }
 }
 
-function positionData(x, y) {
+function positionData(x, y, name) {
     this.x = x;
     this.y = y;
+    this.name = name;
 }
 
-function ballData(canvas, x, y, position) {
+function ballData(canvas, x, y, position, name) {
     this.x = x;
     this.y = y;
     this.position = position;
+    this.name = name;
     drawCircle(canvas, x, y, position, 'ball');
 }
 
