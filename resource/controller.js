@@ -15,8 +15,8 @@ var MainController = (function (_super) {
     	this.view.addEventListener("inited", function(){_this.viewInited()});
 	};
 
-    MainController.prototype.load = function() {
-        this.model.load();
+    MainController.prototype.load = function(type) {
+        this.model.load(type || 0);
     }
 
     MainController.prototype.modelInited = function() {

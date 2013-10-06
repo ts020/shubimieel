@@ -13,9 +13,7 @@
 		C401.182,263.897,258.139,112.5,76.97,100.5z"/>
 	<path fill="#009944" stroke="#FFFFFF" stroke-miterlimit="10" d="M73.336,149.5H48.5v300h303.673c0.003,0,0.009-0.55,0.009-0.964
 		C352.182,289.951,229.154,159.5,73.336,149.5z"/>
-	<path fill="#009944" stroke="#FFFFFF" stroke-miterlimit="10" d="M69.628,199.5H48.5v250h253.674c0.003,0,0.008-0.361,0.008-0.705
-		C302.182,316.537,199.579,207.5,69.628,199.5z"/>
-	<radialGradient id="SVGID_1_" cx="49" cy="449.667" r="202.6008" gradientUnits="userSpaceOnUse">
+	<radialGradient id="SVGID_1_" cx="50.3408" cy="450.5" r="253.6833" gradientUnits="userSpaceOnUse">
 		<stop  offset="0.88" style="stop-color:#635719"/>
 		<stop  offset="0.8806" style="stop-color:#56601F"/>
 		<stop  offset="0.882" style="stop-color:#3B712A"/>
@@ -25,15 +23,26 @@
 		<stop  offset="0.891" style="stop-color:#029843"/>
 		<stop  offset="0.9" style="stop-color:#009944"/>
 	</radialGradient>
-	<path fill="url(#SVGID_1_)" stroke="#FFFFFF" stroke-miterlimit="10" d="M65.92,249.5H48.5v200h203.676
-		c0.002,0,0.006-0.172,0.006-0.447C252.182,343.123,170.003,255.5,65.92,249.5z"/>
+	<path fill="url(#SVGID_1_)" stroke="#FFFFFF" stroke-miterlimit="10" d="M69.628,199.5H48.5v250h253.674
+		c0.003,0,0.008-0.361,0.008-0.705C302.182,316.537,199.579,207.5,69.628,199.5z"/>
+	<path fill="#635719" stroke="#FFFFFF" stroke-miterlimit="10" d="M65.92,249.5H48.5v200h203.676c0.002,0,0.006-0.172,0.006-0.447
+		C252.182,343.123,170.003,255.5,65.92,249.5z"/>
 	<path fill="#635719" stroke="#FFFFFF" stroke-miterlimit="10" d="M61.265,298.5H48.5v151h153.388c0.001,0,0.004-0.13,0.004-0.338
 		C201.892,369.186,139.847,302.5,61.265,298.5z"/>
 	<path fill="#635719" stroke="#FFFFFF" stroke-miterlimit="10" d="M62.265,298.5H48.5v151h154.388c0.001,0,0.004-0.13,0.004-0.338
 		C202.892,369.186,140.847,302.5,62.265,298.5z"/>
 	<path fill="#635719" stroke="#FFFFFF" stroke-miterlimit="10" d="M59.482,349.5H48.5v100h104.389c0.001,0,0.003,0.064,0.003-0.074
 		C152.892,396.303,111.68,352.5,59.482,349.5z"/>
-	<g opacity="0.2">
+	<g>
+		<rect x="49" y="305" fill="#FFFFFF" width="15" height="14"/>
+		<rect x="179" y="305" fill="#FFFFFF" width="14" height="14"/>
+		<rect x="179" y="434" fill="#FFFFFF" width="14" height="15"/>
+		<rect x="49" y="426" fill="#FFFFFF" width="23" height="23"/>
+		<rect x="48.5" y="305.5" fill="none" stroke="#FFFFFF" stroke-miterlimit="10" width="144" height="144"/>
+	</g>
+</g>
+<g id="レイヤー_3" display="none">
+	<g display="inline" opacity="0.2">
 		<polygon fill="#FFFFFF" points="61.018,434.547 341.862,48 297.893,48 		"/>
 		<polygon fill="#FFFFFF" points="63.37,436.283 451.655,48 394.994,48 		"/>
 		<polygon fill="#FFFFFF" points="58.38,433.279 254.689,48 217.967,48 		"/>
@@ -68,13 +77,6 @@
 		<polygon fill="#FFFFFF" points="51.108,451.002 51.108,451.002 51.108,451.002 		"/>
 		<polygon fill="#FFFFFF" points="51.185,450.893 51.152,450.896 51.146,450.973 		"/>
 		<polygon fill="#FFFFFF" points="452,419.306 67.929,449.535 452,449.537 		"/>
-	</g>
-	<g>
-		<rect x="49" y="333" fill="#FFFFFF" width="12" height="12"/>
-		<rect x="153" y="333" fill="#FFFFFF" width="12" height="12"/>
-		<rect x="153" y="437" fill="#FFFFFF" width="12" height="12"/>
-		<rect x="49" y="431" fill="#FFFFFF" width="18" height="18"/>
-		<rect x="48.5" y="333.5" fill="none" stroke="#FFFFFF" stroke-miterlimit="10" width="116" height="116"/>
 	</g>
 </g>
 </svg>
