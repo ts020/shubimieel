@@ -25,8 +25,8 @@ var MainView = (function (_super) {
 
         for (var i = 0; i < 27; i++) {
             position = parseInt(Math.random() * 9) + 1;
-            x = Math.random() * 640;
-            y = Math.random() * 640;
+            x = position * 50 + Math.random() * 210;
+            y = (position % 3 ) * 150 + Math.random() * 210;
             name = '堂林 翔太';
             array.push(new ballData(canvas, x, y, position, name));
         }
@@ -44,14 +44,30 @@ var MainView = (function (_super) {
             var numY = 0;
             var name = '';
             console.log('ポジション' + i + 'が処理した打球は' + center[i].length);
+
             for (var j = 0; j < center[i].length; j++) {
                 sumX += center[i][j].x;
                 sumY += center[i][j].y;
                 name = center[i][j].name;
             }
 
-            console.log("ポジション" + i + 'の' + name + "の重心は(" + sumX/center[i].length + ", " + sumY/center[i].length + ")")
-            drawCircle(canvas, sumX/center[i].length, sumY/center[i].length, ( i + 1 ), 'center', name);
+            centerX = sumX/center[i].length;
+            centerY = sumY/center[i].length;
+
+            console.log("ポジション" + i + 'の' + name + "の重心は(" + centerX + ", " + centerY + ")")
+
+            //重心からの平均距離を計算
+            var arrDist = new Array();
+            var avg = 0;
+            for (var j = 0; j < center[i].length; j++) {
+                arrDist.push(distance(centerX, centerY, center[i][j].x, sumY += center[i][j].y));
+                avg += distance(centerX, centerY, center[i][j].x, center[i][j].y);
+            }
+
+            
+            var avg = avg/center[i].length;
+            console.log('距離の平均は(' + avg +')');
+            drawCircle(canvas, centerX, centerY, ( i + 1 ), 'center', name, avg + 10);
         }
     };
 
@@ -83,7 +99,21 @@ function drawCircle(canvas, x, y, positionNumber) {
         canvas.fill();
 }*/
 
-function drawCircle(canvas, x, y, positionNumber, center, name) {
+//2点の距離を算出
+function distance(x1, y1, x2, y2) {
+    xDif = x1 - x2;
+    yDif = y1 - y2;
+    dist = Math.sqrt(Math.pow(xDif,2) + Math.pow(yDif,2));
+
+    return dist;
+}
+
+//距離の平均を算出
+
+
+
+
+function drawCircle(canvas, x, y, positionNumber, center, name, r) {
     if (center == 'center'){
         console.log("Draw Center!")
         canvas.beginPath();
@@ -92,7 +122,7 @@ function drawCircle(canvas, x, y, positionNumber, center, name) {
 
             var sAng = 0;            //円弧の開始角度
             var eAng = 2 * Math.PI;  //円弧の終端角度
-            canvas.arc(x, y, 50, sAng, eAng, true);
+            canvas.arc(x, y, r, sAng, eAng, true);
             canvas.stroke();
 
             canvas.fillStyle = fillPositionColor(positionNumber, 'center');
@@ -117,6 +147,7 @@ function drawCircle(canvas, x, y, positionNumber, center, name) {
     }
 }
 
+// ポジションごとに色を変更する
 function fillPositionColor(positionNumber, center) {
     //console.log("ポジション" + positionNumber + "の色を描画");
     var alpha = 0.9;
@@ -149,12 +180,14 @@ function fillPositionColor(positionNumber, center) {
     }
 }
 
+//ポジションごとの処理データ
 function positionData(x, y, name) {
     this.x = x;
     this.y = y;
     this.name = name;
 }
 
+//打球データ
 function ballData(canvas, x, y, position, name) {
     this.x = x;
     this.y = y;
