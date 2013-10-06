@@ -43,6 +43,13 @@ var MainController = (function (_super) {
         document.getElementById("floatingMenu").style.visibility = opend ? "hidden" :"visible";
     }
 
+    MainController.prototype.changeTeam = function(type) {
+        document.getElementById("floatingMenu").style.visibility = "hidden";
+        this.load(type);
+    }
+
+
+
     return MainController;
 })(events.EventDispatcher);
 
