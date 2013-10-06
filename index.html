@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-	<meta charset="utf-8">
-	<title>守備みえ〜る</title>
-	<link rel="stylesheet" href="./resource/style.css">
-	<script type="text/javascript" src="./resource/events/EventDispatcher.js"></script>
-	<script type="text/javascript" src="./resource/model.js"></script>
-	<script type="text/javascript" src="./resource/view.js"></script>
-	<script type="text/javascript" src="./resource/controller.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>守備みえ〜る</title>
+    <link rel="stylesheet" href="./resource/style.css">
+    <script type="text/javascript" src="./resource/events/EventDispatcher.js"></script>
+    <script type="text/javascript" src="./resource/model.js"></script>
+    <script type="text/javascript" src="./resource/view.js"></script>
+    <script type="text/javascript" src="./resource/controller.js"></script>
 </head>
 <body>
-	<div id="main">dsdsd</div>
-<canvas id="mainCanvas" width="640" height="960"></canvas>
-<script type="text/javascript">
-		controller.view.draw();
+    <div id="main"></div>
+    <canvas id="mainCanvas" width="640" height="960" style="width: 320px; height: 480px"></canvas>
+    <script type="text/javascript">
+        controller.view.draw();
+        window.addEventListener('load', function(){
+            window.scrollTo(0, 1);            
+        }, false);
 </script>
 </body>
 </html>

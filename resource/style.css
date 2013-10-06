@@ -1,6 +1,10 @@
 body, #mainCanvas {
-	width:640px;
-	height:960px;
+	width: 320px;
+	height: 480px;
 	padding: 0px;
 	margin: 0px;
+}
+
+canvas {
+	background-color: green;
 }
