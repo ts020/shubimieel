@@ -33,10 +33,12 @@ var MainView = (function (_super) {
         for (var i = 0; i < this.model.response[0].contents.length; i++) {
             if (parseInt(this.model.response[0].contents[i].type_id) != -1) {
                 position = parseInt(this.model.response[0].contents[i].position_id, 10);
-                x = parseInt(this.model.response[0].contents[i].x, 10) * 2.3 - 30;//(position - 1)* 50 + Math.random() * 210;
-                y = parseInt(this.model.response[0].contents[i].y, 10) * 2.3 + 30;//(position % 3 ) * 150 + Math.random() * 210;
+                x = parseInt(this.model.response[0].contents[i].x, 10) * 2.2 - 20;//(position - 1)* 50 + Math.random() * 210;
+                y = parseInt(this.model.response[0].contents[i].y, 10) * 2.2 + 30;//(position % 3 ) * 150 + Math.random() * 210;
                 name = this.model.response[0].contents[i].player_name;
                 array.push(new ballData(canvas, x, y, position, name));
+            } else {
+                console.log('ヒット');
             }
         }
 
