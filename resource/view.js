@@ -23,9 +23,9 @@ var MainView = (function (_super) {
         }
         var canvas  = document.getElementById("mainCanvas").getContext("2d");
 
-        for (var i = 0; i < 27; i++) {
+        for (var i = 0; i < 100; i++) {
             position = parseInt(Math.random() * 9) + 1;
-            x = position * 50 + Math.random() * 210;
+            x = (position - 1)* 50 + Math.random() * 210;
             y = (position % 3 ) * 150 + Math.random() * 210;
             name = '堂林 翔太';
             array.push(new ballData(canvas, x, y, position, name));
@@ -59,14 +59,19 @@ var MainView = (function (_super) {
             //重心からの平均距離を計算
             var arrDist = new Array();
             var avg = 0;
+            var max = 0;
             for (var j = 0; j < center[i].length; j++) {
                 arrDist.push(distance(centerX, centerY, center[i][j].x, sumY += center[i][j].y));
                 avg += distance(centerX, centerY, center[i][j].x, center[i][j].y);
+                if (distance(centerX, centerY, center[i][j].x, center[i][j].y) > max) {
+                    max = distance(centerX, centerY, center[i][j].x, center[i][j].y);
+                }
             }
 
             
             var avg = avg/center[i].length;
             console.log('距離の平均は(' + avg +')');
+            drawCircle(canvas, centerX, centerY, ( i + 1 ), 'center', '', max + 10);
             drawCircle(canvas, centerX, centerY, ( i + 1 ), 'center', name, avg + 10);
         }
     };
@@ -117,7 +122,7 @@ function drawCircle(canvas, x, y, positionNumber, center, name, r) {
     if (center == 'center'){
         console.log("Draw Center!")
         canvas.beginPath();
-            canvas.lineWidth = 1;
+            //canvas.lineWidth = 1;
             //canvas.strokeStyle = "#ff0000";
 
             var sAng = 0;            //円弧の開始角度
@@ -128,19 +133,22 @@ function drawCircle(canvas, x, y, positionNumber, center, name, r) {
             canvas.fillStyle = fillPositionColor(positionNumber, 'center');
             canvas.fill();
 
+            //選手名を描画
             canvas.fillStyle = '#000';
             canvas.font = "20pt Arial";
-            canvas.fillText(name, x, y);       
+            canvas.fillText(name, x, y);
+            //var radius = Math.round(r * 10) / 10;
+            //canvas.fillText(('DR: ' + radius), (x + 20), (y + 25));    
     } else {
         //console.log("Draw Ball")
         canvas.beginPath();
-            canvas.lineWidth = 1;
+            //canvas.lineWidth = 1;
             //canvas.strokeStyle = "#ff0000";
 
             var sAng = 0;            //円弧の開始角度
             var eAng = 2 * Math.PI;  //円弧の終端角度
-            canvas.arc(x, y, 10, sAng, eAng, true);
-            canvas.stroke();
+            canvas.arc(x, y, 5, sAng, eAng, true);
+            //canvas.stroke();
 
             canvas.fillStyle = fillPositionColor(positionNumber, 'ball');
             canvas.fill();
