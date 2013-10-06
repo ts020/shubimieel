@@ -41,12 +41,14 @@ var MainView = (function (_super) {
             var numX = 0;
             var sumY = 0;
             var numY = 0;
+            console.log('ポジション' + i + 'が処理した打球は' + center[i].length);
             for (var j = 0; j < center[i].length; j++) {
                 sumX += center[i][j].x;
                 sumY += center[i][j].y;
             }
+
             console.log("ポジション" + i + "の重心は(" + sumX/center[i].length + ", " + sumY/center[i].length + ")")
-            drawCircle(canvas, sumX/center[i].length, sumY/center[i].length, (array[i].position - 1), 'center');
+            drawCircle(canvas, sumX/center[i].length, sumY/center[i].length, ( i + 1 ), 'center');
         }
     };
 
@@ -109,6 +111,7 @@ function drawCircle(canvas, x, y, positionNumber, center) {
 }
 
 function fillPositionColor(positionNumber, center) {
+    console.log("ポジション" + positionNumber + "の色を描画");
     var alpha = 0.9;
     if (center == 'center') {
         alpha = 0.5;
