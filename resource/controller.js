@@ -20,7 +20,7 @@ var MainController = (function (_super) {
     }
 
 	MainController.prototype.modelDataLoaded = function() {
-		console.log(this.model);
+		this.modelDataChange();
 	}
 
     MainController.prototype.modelDataChange = function() {
