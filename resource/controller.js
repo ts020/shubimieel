@@ -55,3 +55,40 @@ var MainController = (function (_super) {
 
 var controller = new MainController();
 controller.load();
+
+$("#logo0").click(function(){
+      location.href = "http://localhost/shubimieel/index.html?t=0";
+});
+$("#logo1").click(function(){
+      location.href = "http://localhost/shubimieel/index.html?t=1";
+});
+$("#logo2").click(function(){
+      location.href = "http://localhost/shubimieel/index.html?t=2";
+});
+$("#logo3").click(function(){
+      location.href = "http://localhost/shubimieel/index.html?t=3";
+});
+$("#logo4").click(function(){
+      location.href = "http://localhost/shubimieel/index.html?t=4";
+});
+$("#logo5").click(function(){
+      location.href = "http://localhost/shubimieel/index.html?t=5";
+});
+$("#logo6").click(function(){
+      location.href = "http://localhost/shubimieel/index.html?t=6";
+});
+$("#logo7").click(function(){
+      location.href = "http://localhost/shubimieel/index.html?t=7";
+});
+$("#logo8").click(function(){
+      location.href = "http://localhost/shubimieel/index.html?t=8";
+});
+$("#logo9").click(function(){
+      location.href = "http://localhost/shubimieel/index.html?t=9";
+});
+$("#logo10").click(function(){
+      location.href = "http://localhost/shubimieel/index.html?t=10";
+});
+$("#logo11").click(function(){
+      location.href = "http://localhost/shubimieel/index.html?t=11";
+});
