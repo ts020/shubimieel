@@ -8,10 +8,11 @@ var MainController = (function (_super) {
     }
 
     MainController.prototype.init = function () {
-    	this.model.addEventListener("inited", function(){this.modelInited()});
-    	this.model.addEventListener("complete", function(){this.modelDataLoaded()});
-    	this.model.addEventListener("changedData", function(){this.modelDataChange()});
-    	this.view.addEventListener("inited", function(){this.viewInited()});
+        var _this = this;
+    	this.model.addEventListener("inited", function(){_this.modelInited()});
+    	this.model.addEventListener("complete", function(){_this.modelDataLoaded()});
+    	this.model.addEventListener("changedData", function(){_this.modelDataChange()});
+    	this.view.addEventListener("inited", function(){_this.viewInited()});
 		var x = this.model.load();
     };
 
