@@ -29,7 +29,8 @@ var MainView = (function (_super) {
             center[i] = new Array();
         }
         var canvas  = document.getElementById("mainCanvas").getContext("2d");
-
+        //アウトのみの場合
+        /*
         for (var i = 0; i < this.model.response[0].contents.length; i++) {
             if (parseInt(this.model.response[0].contents[i].type_id) != -1) {
                 position = parseInt(this.model.response[0].contents[i].position_id, 10);
@@ -40,6 +41,15 @@ var MainView = (function (_super) {
             } else {
                 console.log('ヒット');
             }
+        }
+        */
+        for (var i = 0; i < this.model.response[0].contents.length; i++) {
+            position = parseInt(this.model.response[0].contents[i].position_id, 10);
+            type = parseInt(this.model.response[0].contents[i].type_id);
+            x = parseInt(this.model.response[0].contents[i].x, 10) * 2.2 - 20;//(position - 1)* 50 + Math.random() * 210;
+            y = parseInt(this.model.response[0].contents[i].y, 10) * 2.2 + 30;//(position % 3 ) * 150 + Math.random() * 210;
+            name = this.model.response[0].contents[i].player_name;
+            array.push(new ballData(canvas, x, y, position, name, type));
         }
 
         //重心計算
@@ -72,18 +82,23 @@ var MainView = (function (_super) {
             var avg = 0;
             var max = 0;
             for (var j = 0; j < center[i].length; j++) {
-                arrDist.push(distance(centerX, centerY, center[i][j].x, sumY += center[i][j].y));
+                arrDist.push(distance(centerX, centerY, center[i][j].x, center[i][j].y));
                 avg += distance(centerX, centerY, center[i][j].x, center[i][j].y);
                 if (distance(centerX, centerY, center[i][j].x, center[i][j].y) > max) {
                     max = distance(centerX, centerY, center[i][j].x, center[i][j].y);
                 }
             }
-
-            
             var avg = avg/center[i].length;
-            console.log('距離の平均は(' + avg +')');
-            //drawCircle(canvas, centerX, centerY, ( i + 1 ), 'center', '', max + 10);
-            drawCircle(canvas, centerX, centerY, ( i + 1 ), 'center', name, avg + 10);
+
+            var varia = 0;
+            for (j =0; j < arrDist.length; j++) {
+                varia += Math.pow(arrDist[j] - avg, 2);
+            }
+            var std = Math.sqrt(varia / arrDist.length);
+            
+            console.log('距離の平均は(' + avg +')' + '標準偏差は(' + std + ')');
+            drawCircle(canvas, centerX, centerY, ( i + 1 ), 'center', '',  avg + std);
+            drawCircle(canvas, centerX, centerY, ( i + 1 ), 'center', name, avg);
         }
     };
 
@@ -160,8 +175,11 @@ function drawCircle(canvas, x, y, positionNumber, center, name, r) {
             var eAng = 2 * Math.PI;  //円弧の終端角度
             canvas.arc(x, y, 5, sAng, eAng, true);
             //canvas.stroke();
-
-            canvas.fillStyle = fillPositionColor(positionNumber, 'ball');
+            if (center == 'hit') {
+                canvas.fillStyle = fillPositionColor(100, 'ball');
+            } else {
+                canvas.fillStyle = fillPositionColor(positionNumber, 'ball');
+            }
             canvas.fill();
     }
 }
@@ -182,20 +200,20 @@ function fillPositionColor(positionNumber, center) {
         case 3:
             return 'rgba(255, 255, 0, ' + alpha + ')';
         case 4:
-            return 'rgba(255, 255, 0, ' + alpha + ')';
+            return 'rgba(220, 255, 30, ' + alpha + ')';
         case 5:
-            return 'rgba(255, 255, 0, ' + alpha + ')';
+            return 'rgba(200, 255, 60, ' + alpha + ')';
         case 6:
-            return 'rgba(255, 255, 0, ' + alpha + ')';
+            return 'rgba(180, 255, 90, ' + alpha + ')';
         case 7:
             return 'rgba(0, 200, 0, ' + alpha + ')';
         case 8:
-            return 'rgba(0, 200, 0, ' + alpha + ')';
+            return 'rgba(0, 200, 60, ' + alpha + ')';
         case 9:
-            return 'rgba(0, 200, 0, ' + alpha + ')';
+            return 'rgba(0, 200, 120, ' + alpha + ')';
         default:
             console.log("エラーです" + positionNumber)
-            return 'rgba(0, 0, 0, ' + alpha + ')';
+            return 'rgba(100, 100, 100, ' + alpha + ')';
     }
 }
 
@@ -207,11 +225,16 @@ function positionData(x, y, name) {
 }
 
 //打球データ
-function ballData(canvas, x, y, position, name) {
+function ballData(canvas, x, y, position, name, type) {
     this.x = x;
     this.y = y;
     this.position = position;
     this.name = name;
-    drawCircle(canvas, x, y, position, 'ball');
+    this.type = type;
+    if (type != -1) {
+        drawCircle(canvas, x, y, position, 'out');
+    } else {
+        drawCircle(canvas, x, y, position, 'hit');
+    }
 }
 
