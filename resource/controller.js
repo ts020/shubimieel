@@ -38,6 +38,11 @@ var MainController = (function (_super) {
         this.dispatchEvent("complete");
     };
 
+    MainController.prototype.showMenu = function() {
+        var opend = document.getElementById("floatingMenu").style.visibility == "visible";
+        document.getElementById("floatingMenu").style.visibility = opend ? "hidden" :"visible";
+    }
+
     return MainController;
 })(events.EventDispatcher);
 

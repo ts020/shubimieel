@@ -3,13 +3,49 @@ body {
 	height: 480px;
 	padding: 0px;
 	margin: 0px;
+	font-family:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+	position: absolute;
 }
 
 canvas {
-	width: 500px;
-	height: 500px;
+	position: absolute;;
+	top:100px;
+	left : 0px;
+	width: 640px;
+	height: 640px;
 	-moz-background-size:contain;
 	background-size: contain;
 	background-image: url("img/back.svg");
-	background-size: 100%;
+}
+
+#nav {
+	background-color: #ff4b5a;
+	width : 640px;
+	height: 100px;
+}
+
+#menuBtn {
+	width: 74px;
+	height: 74px;
+	position: absolute;
+	left: 10px;
+	top: 10px;
+}
+
+#head {
+	width: auto;
+	height: 79px;
+	position: absolute;
+	left: 50px;
+	top: 10px;
+}
+
+#floatingMenu {
+	width: 640px;
+	height: 640px;
+	background-image: url("img/floatingBack.svg");
+	position: absolute;
+	top:88px;
+	left: 0px;
+	visibility: hidden;
 }

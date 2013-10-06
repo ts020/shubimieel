@@ -4,7 +4,7 @@
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="500px"
 	 height="500px" viewBox="0 0 500 500" enable-background="new 0 0 500 500" xml:space="preserve">
 <g id="レイヤー_2">
-	<rect x="-0.5" y="-0.5" fill="#FFFFFF" stroke="#231815" stroke-miterlimit="10" width="500" height="500"/>
+	<rect x="-1" fill="#FFFFFF" width="500" height="500"/>
 </g>
 <g id="レイヤー_1">
 	<path fill="#009944" stroke="#FFFFFF" stroke-miterlimit="10" d="M80.69,50.5H48.5v399h402.84c0.003,0,0.011-0.842,0.011-1.393
