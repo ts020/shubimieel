@@ -8,12 +8,11 @@ var MainModel = (function (_super) {
         this.dispatchEvent("inited");
     };
 
-	//MainModel.prototype.mieelData = null;
 	MainModel.prototype.load = function () {
 		var _this = this;
-		$.getJSON("http://210.129.199.30/syubi/mieru/", function(data){
+		$.getJSON("http://210.129.199.30/syubi/mieru/sub", function(data){
+		//$.getJSON("http://210.129.199.30/syubi/mieru/mini/", function(data){
 			console.log("success");
-			//this.mieelData = data;
 			_this.response = data;
 			_this.loadComplete();
 		})
@@ -35,5 +34,5 @@ var MainModel = (function (_super) {
     return MainModel;
 })(events.EventDispatcher);
 
-//var mm = new MainModel();
-//mm.load();
+var mm = new MainModel();
+mm.load();
