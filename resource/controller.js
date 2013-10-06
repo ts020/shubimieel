@@ -12,16 +12,15 @@ var MainController = (function (_super) {
     	this.model.addEventListener("complete", function(){this.modelDataLoaded()});
     	this.model.addEventListener("changedData", function(){this.modelDataChange()});
     	this.view.addEventListener("inited", function(){this.viewInited()});
-
+		var x = this.model.load();
     };
 
     MainController.prototype.modelInited = function() {
-
     }
 
 	MainController.prototype.modelDataLoaded = function() {
-
-    }
+		console.log(this.model);
+	}
 
     MainController.prototype.modelDataChange = function() {
     	this.view.draw();
@@ -37,3 +36,5 @@ var MainController = (function (_super) {
 
     return MainController;
 })(events.EventDispatcher);
+
+var mc = new MainController();
