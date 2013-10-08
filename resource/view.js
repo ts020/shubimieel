@@ -145,26 +145,30 @@ function distance(x1, y1, x2, y2) {
 
 
 function drawCircle(canvas, x, y, positionNumber, center, name, r) {
+    var conf = new config();
     if (center == 'center'){
         console.log("Draw Center!")
         canvas.beginPath();
-            //canvas.lineWidth = 1;
-            //canvas.strokeStyle = "#ff0000";
+        var sAng = 0;            //円弧の開始角度
+        var eAng = 2 * Math.PI;  //円弧の終端角度
+        canvas.arc(x, y, r, sAng, eAng, true);
 
-            var sAng = 0;            //円弧の開始角度
-            var eAng = 2 * Math.PI;  //円弧の終端角度
-            canvas.arc(x, y, r, sAng, eAng, true);
+        if (conf.lineWidth > 0) {
+            canvas.lineWidth = conf.lineWidth;
+            canvas.strokeStyle = conf.lineColor;
             canvas.stroke();
+        }
 
-            canvas.fillStyle = fillPositionColor(positionNumber, 'center');
-            canvas.fill();
+        canvas.fillStyle = fillPositionColor(positionNumber, 'center');
+        canvas.fill();
 
-            //選手名を描画
-            canvas.fillStyle = '#000';
-            canvas.font = "20pt Arial";
-            canvas.fillText(name, x, y);
-            //var radius = Math.round(r * 10) / 10;
-            //canvas.fillText(('DR: ' + radius), (x + 20), (y + 25));    
+        //選手名を描画
+        canvas.fillStyle = conf.nameColor;
+        canvas.font = conf.nameFont;
+        canvas.fillText(name, x + conf.nameX, y + conf.nameY);
+        //var radius = Math.round(r * 10) / 10;
+        //canvas.fillText(('DR: ' + radius), (x + 20), (y + 25));    
+
     } else {
         //console.log("Draw Ball")
         canvas.beginPath();
@@ -177,43 +181,11 @@ function drawCircle(canvas, x, y, positionNumber, center, name, r) {
             //canvas.stroke();
             if (center == 'hit') {
                 canvas.fillStyle = fillPositionColor(100, 'ball');
+                canvas.fill();
             } else {
                 canvas.fillStyle = fillPositionColor(positionNumber, 'ball');
+                canvas.fill();
             }
-            canvas.fill();
-    }
-}
-
-// ポジションごとに色を変更する
-function fillPositionColor(positionNumber, center) {
-    //console.log("ポジション" + positionNumber + "の色を描画");
-    var alpha = 0.9;
-    if (center == 'center') {
-        alpha = 0.5;
-    }
-
-    switch (positionNumber){
-        case 1:
-            return 'rgba(255, 0, 0, ' + alpha + ')';
-        case 2:
-            return 'rgba(0, 0, 255, ' + alpha + ')';
-        case 3:
-            return 'rgba(255, 255, 0, ' + alpha + ')';
-        case 4:
-            return 'rgba(220, 255, 30, ' + alpha + ')';
-        case 5:
-            return 'rgba(200, 255, 60, ' + alpha + ')';
-        case 6:
-            return 'rgba(180, 255, 90, ' + alpha + ')';
-        case 7:
-            return 'rgba(0, 200, 0, ' + alpha + ')';
-        case 8:
-            return 'rgba(0, 200, 60, ' + alpha + ')';
-        case 9:
-            return 'rgba(0, 200, 120, ' + alpha + ')';
-        default:
-            console.log("エラーです" + positionNumber)
-            return 'rgba(100, 100, 100, ' + alpha + ')';
     }
 }
 
