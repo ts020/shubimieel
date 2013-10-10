@@ -29,6 +29,7 @@ var MainView = (function (_super) {
             center[i] = new Array();
         }
         var canvas  = document.getElementById("mainCanvas").getContext("2d");
+        canvas.clearRect(0,0,640,640);
         //アウトのみの場合
         /*
         for (var i = 0; i < this.model.response[0].contents.length; i++) {
