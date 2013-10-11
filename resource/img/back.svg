@@ -4,7 +4,7 @@
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="500px"
 	 height="500px" viewBox="0 0 500 500" enable-background="new 0 0 500 500" xml:space="preserve">
 <g id="レイヤー_2">
-	<rect x="-1" fill="#FFFFFF" width="500" height="500"/>
+	<rect x="-2" y="1" fill="none" width="500" height="500"/>
 </g>
 <g id="レイヤー_1">
 	<path fill="#009944" stroke="#FFFFFF" stroke-miterlimit="10" d="M80.69,50.5H48.5v399h402.84c0.003,0,0.011-0.842,0.011-1.393
@@ -41,8 +41,8 @@
 		<rect x="48.5" y="305.5" fill="none" stroke="#FFFFFF" stroke-miterlimit="10" width="144" height="144"/>
 	</g>
 </g>
-<g id="レイヤー_3" display="none">
-	<g display="inline" opacity="0.2">
+<g id="レイヤー_3">
+	<g opacity="0.2">
 		<polygon fill="#FFFFFF" points="61.018,434.547 341.862,48 297.893,48 		"/>
 		<polygon fill="#FFFFFF" points="63.37,436.283 451.655,48 394.994,48 		"/>
 		<polygon fill="#FFFFFF" points="58.38,433.279 254.689,48 217.967,48 		"/>

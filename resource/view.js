@@ -146,7 +146,6 @@ function distance(x1, y1, x2, y2) {
 
 
 function drawCircle(canvas, x, y, positionNumber, center, name, r) {
-    var conf = new config();
     if (center == 'center'){
         console.log("Draw Center!")
         canvas.beginPath();

@@ -5,6 +5,7 @@ body {
 	margin: 0px;
 	font-family:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
 	position: absolute;
+	background-image: url("img/bg.jpg");
 }
 
 canvas {
@@ -48,4 +49,31 @@ top: 10px;
 	top:88px;
 	left: 0px;
 	visibility: hidden;
+}
+
+#ballBtn {
+	position: absolute;
+	top:770px;
+	left: 180px;
+}
+
+#chartBtn {
+	position: absolute;
+	top:770px;
+	left: 380px;
+}
+
+#startView {
+	position: absolute;
+	top : 0px;
+	left: 0px;
+	background-image: url("img/start.png");
+	-moz-background-size:contain;
+	background-size: contain;
+	width: 640px;
+	height: 960px;
+}
+
+.disable {
+	opacity: 0.3;
 }

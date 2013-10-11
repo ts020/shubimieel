@@ -49,6 +49,19 @@ var MainController = (function (_super) {
         this.load(type);
     }
 
+    MainController.prototype.toggleBall = function() {
+        setBallVisible(!ballVisible);
+        this.view.draw();
+    }
+
+    MainController.prototype.toggleChart = function() {
+        setChartVisible(!chartVisible);
+        this.view.draw();
+    }
+
+    MainController.prototype.start = function() {
+        $("#startView").animate({top:-960}, 500);
+    }
 
 
     return MainController;

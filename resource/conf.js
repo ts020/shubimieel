@@ -1,29 +1,29 @@
 //線の太さと色を決定
 function config () {
     //円の線幅
-    this.lineWidth = 0;
+    this.lineWidth = 2;
     //円の線色
     this.lineColor = 'rgba(255, 255, 255, 1.0)';
     //フォント種類
-    this.nameFont = '20pt Arial';
+    this.nameFont = '18pt Arial';
     //フォントカラー
-    this.nameColor = 'rgba(50, 50, 50, 1.0)';
+    this.nameColor = 'rgba(255, 255, 255, 1.0)';
     //名前のX座標
     this.nameX = -30;
     //名前のY座標
-    this.nameY = -20;
+    this.nameY = 0;
 }
 
 // ポジションごとに円の色を変更する
 function fillPositionColor(positionNumber, center) {
     //console.log("ポジション" + positionNumber + "の色を描画");
     //ボールの補球位置の不透明度
-    var alpha = 0.9;
+    var alpha = !ballVisible ? 0 : 0.9;
     //守備位置の不透明度
     if (center == 'center') {
-        alpha = 0.5;
+        alpha = !chartVisible ? 0 : 0.5;
     }
-
+    
     switch (positionNumber){
         //ピッチャー
         case 1:
@@ -58,4 +58,15 @@ function fillPositionColor(positionNumber, center) {
     }
 }
 
+var ballVisible = true;
+function setBallVisible(bool) {
+    ballVisible = bool;
+}
 
+var chartVisible = true;
+function setChartVisible(bool) {
+    chartVisible = bool;
+    conf.lineWidth = !chartVisible ? 0 : 2;
+}
+
+var conf = new config();

@@ -40,6 +40,11 @@ DeNA:4
 	<img src="resource/img/logo/8.png" id="logo8" style=" position: absolute; left: 401px; top: 250px; " onclick="controller.changeTeam(8)">
 	<img src="resource/img/logo/9.png" id="logo9" style=" position: absolute; left: 515px; top: 250px; " onclick="controller.changeTeam(9)">
  </div>
+ <div id="bottomMenu">
+ 	<img id="ballBtn" src="resource/img/ico_ball.svg" onclick="controller.toggleBall()" />
+	<img id="chartBtn" src="resource/img/ico_chart.svg" onclick="controller.toggleChart()" />
+ </div>
+ <div id="startView" onclick="controller.start()"></div>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 	<script type="text/javascript" src="./resource/events/EventDispatcher.js"></script>
 	<script type="text/javascript" src="./resource/conf.js"></script>

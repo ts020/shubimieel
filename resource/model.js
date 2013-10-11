@@ -27,7 +27,6 @@ var MainModel = (function (_super) {
     };
 
     MainModel.prototype.changeData = function() {
-		alert("####");
     	this.dispatchEvent("changedData");
 	}
     return MainModel;
